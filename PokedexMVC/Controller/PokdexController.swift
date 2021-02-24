@@ -1,10 +1,3 @@
-//
-//  PokdexController.swift
-//  PokedexMVC
-//
-//  Created by Stephen Dowless on 1/8/19.
-//  Copyright © 2019 Stephan Dowless. All rights reserved.
-//
 
 import UIKit
 

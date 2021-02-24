@@ -1,10 +1,3 @@
-//
-//  PokedexCell.swift
-//  PokedexMVC
-//
-//  Created by Stephen Dowless on 1/8/19.
-//  Copyright © 2019 Stephan Dowless. All rights reserved.
-//
 
 import UIKit
 
@@ -83,8 +76,8 @@ class PokedexCell: UICollectionViewCell {
 //        addSubview(nameContainerView)
 //        nameContainerView.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 32)
 //
-//        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
-//        self.addGestureRecognizer(longPressGestureRecognizer)
+        let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        self.addGestureRecognizer(longPressGestureRecognizer)
     }
     
 }

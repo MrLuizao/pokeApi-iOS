@@ -1,10 +1,3 @@
-//
-//  PokemonInfoController.swift
-//  PokedexMVC
-//
-//  Created by Stephen Dowless on 1/14/19.
-//  Copyright © 2019 Stephan Dowless. All rights reserved.
-//
 
 import UIKit
 
@@ -40,6 +33,21 @@ class PokemonInfoController: UIViewController {
         return view
     }()
     
+    lazy var addFavButton: UIView = {
+        let view = UIButton(type: .system)
+        view.backgroundColor = .mainPink()
+        view.setTitle("Add to favorites", for: .normal)
+        view.setTitleColor(.white, for: .normal)
+        view.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+//        button.addTarget(self, action: #selector(handleViewMoreInfo), for: .touchUpInside)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 5
+        view.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        return view
+       
+    }()
+    
+    
     lazy var evolutionView: UIView = {
         let view = UIView()
         view.backgroundColor = .mainPink()
@@ -59,6 +67,7 @@ class PokemonInfoController: UIViewController {
         label.font = UIFont.systemFont(ofSize: 18)
         return label
     }()
+    
     
     let firstEvoImageView: UIImageView = {
         let iv = UIImageView()
@@ -96,6 +105,9 @@ class PokemonInfoController: UIViewController {
         
         view.addSubview(infoView)
         infoView.anchor(top: infoLabel.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 150)
+
+        view.addSubview(addFavButton)
+        addFavButton.anchor(top: view.centerYAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 12, paddingBottom: 0, paddingRight: 12, width: 0, height: 50)
         
 //        view.addSubview(evolutionView)
 //        evolutionView.anchor(top: infoView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 50)
