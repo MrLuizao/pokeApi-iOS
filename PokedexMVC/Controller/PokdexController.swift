@@ -92,6 +92,9 @@ class PokedexController: UICollectionViewController {
         
         navigationItem.title = "PokeApi"
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .bookmarks, target: self, action: #selector(handleViewFavs))
+        navigationItem.rightBarButtonItem?.tintColor = .white
+        
        //configureSearchBarButton()
         
         collectionView.register(PokedexCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -102,6 +105,11 @@ class PokedexController: UICollectionViewController {
         
         let gesture = UITapGestureRecognizer(target: self, action: #selector(handleDismissal))
         visualEffectView.addGestureRecognizer(gesture)
+    }
+    
+    // MARK: Selectors
+    @objc func handleViewFavs(){
+        self.present(UINavigationController(rootViewController: FavoritesController()), animated: true, completion: nil)
     }
 }
 
