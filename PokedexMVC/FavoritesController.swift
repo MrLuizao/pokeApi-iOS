@@ -8,7 +8,6 @@ struct Favorite{
     var favName: String
 }
 
-
 //class FavoritesController: UIViewController{
 class FavoritesController: UITableViewController{
 
@@ -19,6 +18,7 @@ class FavoritesController: UITableViewController{
         
         view.backgroundColor = .white
         navigationItem.title = "Favorites"
+        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
         
         fetchPokemon()

@@ -39,13 +39,20 @@ class PokemonInfoController: UIViewController {
         view.setTitle("Add to favorites", for: .normal)
         view.setTitleColor(.white, for: .normal)
         view.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-//        button.addTarget(self, action: #selector(handleViewMoreInfo), for: .touchUpInside)
+        view.addTarget(self, action: #selector(addFavoriteItem), for: .touchUpInside)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 5
         view.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         return view
        
     }()
+    
+    // MARK: Selectors
+    
+    @objc func addFavoriteItem(){
+        print("Luison Rocks lml with iOS")
+
+    }
     
     
     lazy var evolutionView: UIView = {
@@ -108,15 +115,7 @@ class PokemonInfoController: UIViewController {
 
         view.addSubview(addFavButton)
         addFavButton.anchor(top: view.centerYAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 0, paddingLeft: 12, paddingBottom: 0, paddingRight: 12, width: 0, height: 50)
-        
-//        view.addSubview(evolutionView)
-//        evolutionView.anchor(top: infoView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 8, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 0, height: 50)
-//
-//        view.addSubview(firstEvoImageView)
-//        firstEvoImageView.anchor(top: evolutionView.bottomAnchor, left: view.leftAnchor, bottom: nil, right: nil, paddingTop: 20, paddingLeft: 32, paddingBottom: 0, paddingRight: 0, width: 120, height: 120)
-//
-//        view.addSubview(secondEvoImageView)
-//        secondEvoImageView.anchor(top: evolutionView.bottomAnchor, left: nil, bottom: nil, right: view.rightAnchor, paddingTop: 20, paddingLeft: 0, paddingBottom: 0, paddingRight: 32, width: 120, height: 120)
+
     }
     
 }
