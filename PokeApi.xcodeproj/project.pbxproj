@@ -19,6 +19,9 @@
 		23B062E921E58A14002234EA /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B062E821E58A14002234EA /* Pokemon.swift */; };
 		23B062F121E6C1D7002234EA /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B062F021E6C1D7002234EA /* Service.swift */; };
 		4C0C367525E7121600572E99 /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0C367425E7121600572E99 /* FavoritesController.swift */; };
+		4C5B9F4725E75CAA00A181EF /* ModelFavs.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B9F4525E75CAA00A181EF /* ModelFavs.xcdatamodeld */; };
+		4C5B9F5225E7603B00A181EF /* FavoriteCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B9F5025E7603B00A181EF /* FavoriteCD+CoreDataClass.swift */; };
+		4C5B9F5325E7603B00A181EF /* FavoriteCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B9F5125E7603B00A181EF /* FavoriteCD+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,9 @@
 		23B062E821E58A14002234EA /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		23B062F021E6C1D7002234EA /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		4C0C367425E7121600572E99 /* FavoritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoritesController.swift; path = ../FavoritesController.swift; sourceTree = "<group>"; };
+		4C5B9F4625E75CAA00A181EF /* ModelFavs.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ModelFavs.xcdatamodel; sourceTree = "<group>"; };
+		4C5B9F5025E7603B00A181EF /* FavoriteCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteCD+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4C5B9F5125E7603B00A181EF /* FavoriteCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +58,8 @@
 		23B062BB21E55B49002234EA = {
 			isa = PBXGroup;
 			children = (
+				4C5B9F5025E7603B00A181EF /* FavoriteCD+CoreDataClass.swift */,
+				4C5B9F5125E7603B00A181EF /* FavoriteCD+CoreDataProperties.swift */,
 				23B062C621E55B49002234EA /* PokedexMVC */,
 				23B062C521E55B49002234EA /* Products */,
 			);
@@ -78,6 +86,7 @@
 				23B062CE21E55B4B002234EA /* Assets.xcassets */,
 				23B062D021E55B4B002234EA /* LaunchScreen.storyboard */,
 				23B062D321E55B4B002234EA /* Info.plist */,
+				4C5B9F4525E75CAA00A181EF /* ModelFavs.xcdatamodeld */,
 			);
 			path = PokedexMVC;
 			sourceTree = "<group>";
@@ -199,9 +208,12 @@
 				23B062E921E58A14002234EA /* Pokemon.swift in Sources */,
 				23B062E321E55D76002234EA /* PokedexCell.swift in Sources */,
 				4C0C367525E7121600572E99 /* FavoritesController.swift in Sources */,
+				4C5B9F4725E75CAA00A181EF /* ModelFavs.xcdatamodeld in Sources */,
+				4C5B9F5325E7603B00A181EF /* FavoriteCD+CoreDataProperties.swift in Sources */,
 				23B062DF21E55B84002234EA /* PokdexController.swift in Sources */,
 				23B062E121E55C7D002234EA /* Extensions.swift in Sources */,
 				23B062C821E55B49002234EA /* AppDelegate.swift in Sources */,
+				4C5B9F5225E7603B00A181EF /* FavoriteCD+CoreDataClass.swift in Sources */,
 				23B062F121E6C1D7002234EA /* Service.swift in Sources */,
 				23186EC821EA7D3C0071520C /* InfoView.swift in Sources */,
 				23186EFF21ECFE8F0071520C /* PokemonInfoController.swift in Sources */,
@@ -404,6 +416,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4C5B9F4525E75CAA00A181EF /* ModelFavs.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4C5B9F4625E75CAA00A181EF /* ModelFavs.xcdatamodel */,
+			);
+			currentVersion = 4C5B9F4625E75CAA00A181EF /* ModelFavs.xcdatamodel */;
+			path = ModelFavs.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 23B062BC21E55B49002234EA /* Project object */;
 }

@@ -4,9 +4,6 @@ import UIKit
 
 private let reuseIdentifier = "cell"
 
-struct Favorite{
-    var favName: String
-}
 
 //class FavoritesController: UIViewController{
 class FavoritesController: UITableViewController{
