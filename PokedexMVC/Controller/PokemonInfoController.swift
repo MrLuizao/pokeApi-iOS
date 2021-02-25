@@ -1,7 +1,23 @@
 
 import UIKit
+import CoreData
 
 class PokemonInfoController: UIViewController {
+    
+    // MARK: - CoreData
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    //var favorite = [Pokemon]()
+    var favorite:[FavoriteCD]?
+    
+    
+    // MARK: - Init
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureViewComponents()
+        
+    }
     
     // MARK: - Properties
     
@@ -50,7 +66,15 @@ class PokemonInfoController: UIViewController {
     // MARK: Selectors
     
     @objc func addFavoriteItem(){
-        print("Luison Rocks lml with iOS")
+        //print("Luison Rocks iOS")
+        
+        let newFavorite = FavoriteCD(context: self.context)
+
+        newFavorite.nameFav = navigationItem.title
+        
+        try! self.context.save()
+        
+        print(newFavorite)
 
     }
     
@@ -90,12 +114,7 @@ class PokemonInfoController: UIViewController {
         return iv
     }()
     
-    // MARK: - Init
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureViewComponents()
-    }
+
     
     // MARK: - Helper Functions
     
