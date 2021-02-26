@@ -33,6 +33,31 @@ class PokedexController: UICollectionViewController {
         fetchPokemon()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if Core.shared.isNewUser(){
+            //Show On Boarding!!!
+            
+//            let vc = storyboard?.instantiateViewController(identifier: "welcome")as! OnBoardController
+//            vc.modalPresentationStyle = .fullScreen
+//            present(vc, animated: true)
+
+            self.present(UINavigationController(rootViewController: OnBoardController()), animated: true, completion: nil)
+            
+
+//            if #available(iOS 13.0, *) {
+//                let vc = storyboard?.instantiateViewController(identifier: "welcome")as! OnBoardController
+//                vc.modalPresentationStyle = .fullScreen
+//                present(vc, animated: true)
+//            } else {
+//
+//            }
+            
+            
+        }
+    }
+    
     // MARK: - Selectors
     
     @objc func showSearchBar() {
@@ -213,4 +238,20 @@ extension PokedexController: InfoViewDelegate {
     }
 }
 
+
+class Core {
+    
+    static let shared = Core()
+    
+    func isNewUser() -> Bool{
+        
+        return !UserDefaults.standard.bool(forKey: "isNewUser")
+        
+    }
+    
+    func setIsNotNewUser(){
+        
+        UserDefaults.standard.set(true, forKey: "isNewUser")
+    }
+}
 
