@@ -7,9 +7,7 @@ class PokemonInfoController: UIViewController {
     // MARK: - CoreData
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    //var favorite = [Pokemon]()
     var favorite:[FavoriteCD]?
-    
     
     // MARK: - Init
     
@@ -66,55 +64,15 @@ class PokemonInfoController: UIViewController {
     // MARK: Selectors
     
     @objc func addFavoriteItem(){
-        //print("Luison Rocks iOS")
-        
+
         let newFavorite = FavoriteCD(context: self.context)
 
         newFavorite.nameFav = navigationItem.title
         
         try! self.context.save()
-        
-        print(newFavorite)
 
     }
     
-    
-    lazy var evolutionView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .mainPink()
-        
-        view.addSubview(evoLabel)
-        evoLabel.translatesAutoresizingMaskIntoConstraints = false
-        evoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        evoLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        
-        return view
-    }()
-    
-    let evoLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        label.text = "Next Evolution: Charmeleon"
-        label.font = UIFont.systemFont(ofSize: 18)
-        return label
-    }()
-    
-    
-    let firstEvoImageView: UIImageView = {
-        let iv = UIImageView()
-        iv.contentMode = .scaleAspectFit
-        iv.backgroundColor = .gray
-        return iv
-    }()
-    
-    let secondEvoImageView: UIImageView = {
-        let iv = UIImageView()
-        iv.contentMode = .scaleAspectFit
-        iv.backgroundColor = .gray
-        return iv
-    }()
-    
-
     
     // MARK: - Helper Functions
     

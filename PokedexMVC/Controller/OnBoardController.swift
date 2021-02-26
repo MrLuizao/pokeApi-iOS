@@ -1,6 +1,4 @@
 
-//import Foundation
-
 import UIKit
 
 
@@ -8,15 +6,11 @@ class OnBoardController: UIViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
-    @IBOutlet var holderView: UIView!
+    @IBOutlet weak var imageOnBoard: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        navigationController?.navigationBar.barTintColor = .white
-//        navigationController?.navigationBar.barStyle = .default
-//        navigationController?.navigationBar.isTranslucent = false
-        
+
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.backgroundColor = .white
         view.backgroundColor = .white

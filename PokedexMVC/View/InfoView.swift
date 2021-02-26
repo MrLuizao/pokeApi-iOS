@@ -85,19 +85,7 @@ class InfoView: UIView {
         let label = UILabel()
         return label
     }()
-    
-    let infoButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.backgroundColor = .mainPink()
-        button.setTitle("View More Info", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button.addTarget(self, action: #selector(handleViewMoreInfo), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.cornerRadius = 5
-        return button
-    }()
-    
+
     // MARK: - Init
     
     override init(frame: CGRect) {
@@ -108,12 +96,6 @@ class InfoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Selectors
-    
-    @objc func handleViewMoreInfo() {
-        guard let pokemon = self.pokemon else { return }
-        delegate?.dismissInfoView(withPokemon: pokemon)
-    }
     
     // MARK: - Helper Functions
     
@@ -182,9 +164,6 @@ class InfoView: UIView {
         
         addSubview(attackLabel)
         attackLabel.anchor(top: pokedexIdLabel.bottomAnchor, left: nil, bottom: nil, right: rightAnchor, paddingTop: 16, paddingLeft: 0, paddingBottom: 0, paddingRight: 8, width: 0, height: 0)
-        
-        addSubview(infoButton)
-        infoButton.anchor(top: nil, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 0, paddingLeft: 12, paddingBottom: 12, paddingRight: 12, width: 0, height: 50)
         
     }
     

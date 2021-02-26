@@ -8,9 +8,6 @@ class PokedexController: UICollectionViewController {
     // MARK: - Properties
     
     var pokemon = [Pokemon]()
-    var filteredPokemon = [Pokemon]()
-    var inSearchMode = false
-    var searchBar: UISearchBar!
     
     let infoView: InfoView = {
         let view = InfoView()
@@ -37,32 +34,13 @@ class PokedexController: UICollectionViewController {
         super.viewDidLayoutSubviews()
         
         if Core.shared.isNewUser(){
-            //Show On Boarding!!!
-            
-//            let vc = storyboard?.instantiateViewController(identifier: "welcome")as! OnBoardController
-//            vc.modalPresentationStyle = .fullScreen
-//            present(vc, animated: true)
 
             self.present(UINavigationController(rootViewController: OnBoardController()), animated: true, completion: nil)
-            
-
-//            if #available(iOS 13.0, *) {
-//                let vc = storyboard?.instantiateViewController(identifier: "welcome")as! OnBoardController
-//                vc.modalPresentationStyle = .fullScreen
-//                present(vc, animated: true)
-//            } else {
-//
-//            }
-            
             
         }
     }
     
     // MARK: - Selectors
-    
-    @objc func showSearchBar() {
-        configureSearchBar()
-    }
     
     @objc func handleDismissal() {
         dismissInfoView(pokemon: nil)
@@ -80,23 +58,6 @@ class PokedexController: UICollectionViewController {
     }
     
     // MARK: - Helper Functions
-    
-    func configureSearchBar() {
-        searchBar = UISearchBar()
-        searchBar.delegate = self
-        searchBar.sizeToFit()
-        searchBar.showsCancelButton = true
-        searchBar.becomeFirstResponder()
-        searchBar.tintColor = .white
-        
-        navigationItem.rightBarButtonItem = nil
-        navigationItem.titleView = searchBar
-    }
-    
-    func configureSearchBarButton() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar))
-        navigationItem.rightBarButtonItem?.tintColor = .white
-    }
     
     func dismissInfoView(pokemon: Pokemon?) {
         UIView.animate(withDuration: 0.5, animations: {
@@ -138,43 +99,20 @@ class PokedexController: UICollectionViewController {
     }
 }
 
-// MARK: - UISearchBarDelegate
 
-extension PokedexController: UISearchBarDelegate {
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        navigationItem.titleView = nil
-        configureSearchBarButton()
-        inSearchMode = false
-        collectionView.reloadData()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        if searchText == "" || searchBar.text == nil {
-            inSearchMode = false
-            collectionView.reloadData()
-            view.endEditing(true)
-        } else {
-            inSearchMode = true
-            filteredPokemon = pokemon.filter({ $0.name?.range(of: searchText.lowercased()) != nil })
-            collectionView.reloadData()
-        }
-    }
-}
 
 // MARK: - UICollectionViewDataSource/Delegate
 
 extension PokedexController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return inSearchMode ? filteredPokemon.count : pokemon.count
+        return pokemon.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PokedexCell
         
-        cell.pokemon = inSearchMode ? filteredPokemon[indexPath.row] : pokemon[indexPath.row]
+        cell.pokemon = pokemon[indexPath.row]
         
         cell.delegate = self
         
@@ -184,7 +122,7 @@ extension PokedexController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let controller = PokemonInfoController()
-        controller.pokemon = inSearchMode ? filteredPokemon[indexPath.row] : pokemon[indexPath.row]
+        controller.pokemon = pokemon[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
     }
 }
@@ -238,20 +176,4 @@ extension PokedexController: InfoViewDelegate {
     }
 }
 
-
-class Core {
-    
-    static let shared = Core()
-    
-    func isNewUser() -> Bool{
-        
-        return !UserDefaults.standard.bool(forKey: "isNewUser")
-        
-    }
-    
-    func setIsNotNewUser(){
-        
-        UserDefaults.standard.set(true, forKey: "isNewUser")
-    }
-}
 

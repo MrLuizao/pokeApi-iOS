@@ -5,13 +5,11 @@ import CoreData
 
 private let reuseIdentifier = "cell"
 
-//class FavoritesController: UIViewController{
 class FavoritesController: UITableViewController{
     
     // MARK: - CoreData
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    //var favorite = [Pokemon]()
     var favorite:[FavoriteCD]?
     
     
@@ -28,7 +26,6 @@ class FavoritesController: UITableViewController{
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: reuseIdentifier)
         
-        //fetchPokemon()
         getDataFromCore()
         
     }
@@ -49,15 +46,7 @@ class FavoritesController: UITableViewController{
             print("Error al recuperar datos")
         }
     }
-    
-//        func fetchPokemon() {
-//            Service.shared.fetchPokemon { (favorite) in
-//                DispatchQueue.main.async {
-//                    self.favorite = favorite
-//                    self.tableView.reloadData()
-//                }
-//            }
-//        }
+
     
     // MARK: - UITableViewDataSource
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
