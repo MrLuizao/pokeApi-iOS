@@ -38,7 +38,6 @@ class FavoritesController: UITableViewController{
             self.favorite = try context.fetch(FavoriteCD.fetchRequest())
 
             DispatchQueue.main.async {
-                //self.favorite = favorite
                 self.tableView.reloadData()
             }
 
